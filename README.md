@@ -59,3 +59,15 @@ use: [
                 ]
             },
 ```
+
+### 2.6 动态执行，文件监听
+
+- 启动webpack加--watch参数，此种方式需要每次手动刷新浏览器
+```js
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+```
+- 配置文件加 watch: true
+- 文件监听原理见ppt
