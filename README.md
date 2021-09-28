@@ -10,3 +10,11 @@
 
 ### 2.2 loaders
 - 写在module/rules数组中，test表示匹配的文件，use表示使用的loader
+
+### 2.3 plugins
+- loaders用来解析webpack不能解析的文件，用loaders去解析额
+- plugins用于增强loaders功能，优化，管理，环境变量注入，例如构建前删除目录
+- plugins作用于整个构建过程
+
+### 2.4 mode
+- 设置不同的mode会有不同的内置函数
