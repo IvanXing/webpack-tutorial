@@ -39,3 +39,7 @@ use: [
 ]
 ```
 - npm i less@3.9.0 less-loader@5.0.0 -D
+
+#### 2.5.4 解析图片和字体
+- file-loader可以用于解析图片和字体
+- npm i file-loader@3.0.1 -D
