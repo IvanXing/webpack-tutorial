@@ -71,3 +71,27 @@ use: [
 ```
 - 配置文件加 watch: true
 - 文件监听原理见ppt
+
+### 2.7 热更新
+
+#### 2.7.1 webpcak-dev-server
+- 开发环境用 -> mode: 'development'
+- 配合 HotModuleReplacementPlugin 插件用，这个插件是webpack内置的
+- wds会自动更新，不输出文件，放在内存中
+- npm i webpack-dev-server@3.3.1 -D
+- `--open`每次构建完成自动开启浏览器
+```js
+"dev": "webpack-dev-server --open"
+
+// 配置文件中配置插件以及devserver
+  const webpack = require('webpack');
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+  ],
+  devServer: {
+    contentBase: './dist',
+    hot: true
+  }
+```
+#### 2.7.2 webpack-dev-middleware
+#### 2.7.3 热更新原理
