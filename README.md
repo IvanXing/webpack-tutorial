@@ -43,3 +43,19 @@ use: [
 #### 2.5.4 解析图片和字体
 - file-loader可以用于解析图片和字体
 - npm i file-loader@3.0.1 -D
+- url-loader也可以处理图片和字体，可以设置较小资源自动转为base64打包到引入文件
+- npm i url-loader@1.1.2 -D
+```js
+            {
+                test: /.(png|jpg|gif|jpeg)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10240
+                          // 单位是字节  10240是10k，图片小于10k，会打包成base64打包进引入文件
+                        }
+                    }
+                ]
+            },
+```
