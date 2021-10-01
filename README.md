@@ -89,9 +89,11 @@ use: [
     new webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
-    contentBase: './dist',
+    contentBase: './dist',     // 手动刷新，引入文件没有配置
     hot: true
   }
 ```
 #### 2.7.2 webpack-dev-middleware
 #### 2.7.3 热更新原理
+
+### 2.8 文件指纹
