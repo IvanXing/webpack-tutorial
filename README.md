@@ -93,7 +93,20 @@ use: [
     hot: true
   }
 ```
+- search.js放在dist中
+- <script src='./search.js' type="text/javascript"></script> 已经在dist目录下
 #### 2.7.2 webpack-dev-middleware
+- 更灵活
+- 需要引入node server
 #### 2.7.3 热更新原理
 
 ### 2.8 文件指纹
+- 用来做版本管理，对于没有修改的文件，用本地缓存，加速访问
+- js文件用chunkhash， css文件用contenthash，取hash的8位
+- 文件指纹和热更新不能一起使用，创建新的dev环境的webpack配置
+
+- 拆分webpack配置文件，在package.json中指定环境
+
+- css文件是插入解析css后，传递给style，插入header的，所以先用插件把css提取成独立的文件，加8位hash指纹
+  - npm i mini-css-extract-plugin@0.6.0 -D
+  - style-loader是插入header，而 MiniCssExtractPlugin是提取出css，功能互斥，加MiniCssExtractPlugin要删掉css-loader
