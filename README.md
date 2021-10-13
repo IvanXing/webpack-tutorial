@@ -110,3 +110,16 @@ use: [
 - css文件是插入解析css后，传递给style，插入header的，所以先用插件把css提取成独立的文件，加8位hash指纹
   - npm i mini-css-extract-plugin@0.6.0 -D
   - style-loader是插入header，而 MiniCssExtractPlugin是提取出css，功能互斥，加MiniCssExtractPlugin要删掉css-loader
+
+### 2.9 代码压缩
+
+#### 2.9.1 HTML压缩（把html也压缩到dist中）
+- 修改 html-webpack-plugin 设置压缩参数，处理空格换行等
+- npm i html-webpack-plugin@3.2.0 -D
+#### 2.9.2 CSS压缩
+- optimize-css-assets-webpack-plugin 同时使用 cssnano 的css处理器 
+- npm i optimize-css-assets-webpack-plugin@5.0.1 -D
+- npm i cssnano@4.1.10 -D
+#### 2.9.3 JS压缩
+- webpack内置了 uglifyjs-webpack-plugin 压缩文件，mode: 'production'时，默认开启，不需要额外安装操作
+- 如果需要配置额外操作，类似并行压缩，需要安装 npm i uglifyjs-webpack-plugin@2.1.2 -D
