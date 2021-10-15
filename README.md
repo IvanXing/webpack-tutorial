@@ -123,3 +123,32 @@ use: [
 #### 2.9.3 JS压缩
 - webpack内置了 uglifyjs-webpack-plugin 压缩文件，mode: 'production'时，默认开启，不需要额外安装操作
 - 如果需要配置额外操作，类似并行压缩，需要安装 npm i uglifyjs-webpack-plugin@2.1.2 -D
+
+
+## 3. 进阶用法
+
+### 3.1 自动清理构建目录产物
+- 安装插件 npm i clean-webpack-plugin@2.0.2 -D
+- 引入，并加入prod以及dev配置
+
+### 3.2 自动补全不同浏览器不兼容的css前缀
+- less和sass是预处理
+- autoprefixer是打包完之后后置处理  这个插件 一般与 PostCSS Loader一起使用
+- npm i postcss-loader@3.0.0 autoprefixer@9.5.1 -D
+- loader 和 plugins 一起配置在 less 匹配的 loader中
+
+### 3.3 移动端css适配px转化rem
+- npm i px2rem-loader@0.1.9 -D
+- npm i lib-flexible@0.3.2 -S    // 动态计算根元素在实际页面 font-size的大小
+```js
+{
+            loader: 'px2rem-loader',
+            options: {
+              remUnit: 75,   // 一个rem 是75px
+              remPrecision: 8   // px转换为rem 小数点位数 
+            }
+}
+```
+
+### 3.4 处理内联资源
+- npm i raw-loader@0.5.1 -D
