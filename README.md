@@ -152,3 +152,8 @@ use: [
 
 ### 3.4 处理内联资源
 - npm i raw-loader@0.5.1 -D
+
+### 3.5 多页面应用打包通用方案
+- 改造两个文件夹，入口都为index.html index.js
+- 利用glob库，glob.sync 用同步的方式把文件查询出来
+- npm i glob@7.1.4 -D
