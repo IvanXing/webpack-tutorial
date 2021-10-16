@@ -157,3 +157,25 @@ use: [
 - 改造两个文件夹，入口都为index.html index.js
 - 利用glob库，glob.sync 用同步的方式把文件查询出来
 - npm i glob@7.1.4 -D
+
+### 3.6 source map
+- webpack配置中把mode改成none，这样打包出来的代码不会压缩
+
+#### 3.6.1 配置
+- 与plugins平行，设置devtool: 'eval'
+  - dist中不生成单独的source map文件，文件中用eval包裹，后边sourceurl标示文件名
+  - eval(...sourceURL=webpack:///./src/index/index.js?") 
+- 设置成devtool: 'source-map'
+  - source map文件和js文件会分离，js文件的最后一行会显示map文件的路径
+  - //# sourceMappingURL=index_3b645021.js.map
+- 设置成devtool: 'inline-source-map'
+  - source map不单独成文件，和js在一个文件中
+  - //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZX ....
+
+#### 3.6.2 调试
+
+- 打开webpace.dev.js同步多页面打包配置
+- 不开启source map 运行run dev search/index.js 中加debugger，是压缩代码，不好调试
+- 开启source map
+  - devtool: 'source-map'
+  - 访问 http://localhost:8080/search.html 进入不压缩的 debugger
